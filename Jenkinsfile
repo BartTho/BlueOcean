@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Integration Tests') {
           steps {
-            echo 'UAT Testing Complete.'
+            echo 'Integration Testing Complete.'
           }
         }
         stage('Peformance Testing') {
