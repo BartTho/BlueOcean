@@ -14,12 +14,12 @@ pipeline {
             junit 'target/**/*.xml'
           }
         }
-        stage('UAT Tests') {
+        stage('Integration Tests') {
           steps {
             echo 'UAT Testing Complete.'
           }
         }
-        stage('Integration Testing') {
+        stage('Peformance Testing') {
           steps {
             sh '''sleep 30 
 '''
