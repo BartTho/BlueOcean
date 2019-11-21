@@ -7,8 +7,6 @@ pipeline {
         sh 'jenkins/build.sh'
       }
     }
-    stage('Test') {
-      parallel {
         stage('Test') {
           steps {
             echo 'Testing'
@@ -31,8 +29,7 @@ pipeline {
 
           }
         }
-      }
-    }
+    
     stage('Deploy') {
       steps {
         echo 'Deploying'
