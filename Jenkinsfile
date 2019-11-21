@@ -8,10 +8,29 @@ pipeline {
       }
     }
     stage('Test') {
-      steps {
-        echo 'Testing'
-        sh 'jenkins/test-all.sh'
-        junit 'target/**/*.xml'
+      parallel {
+        stage('Test') {
+          steps {
+            echo 'Testing'
+            sh 'jenkins/test-all.sh'
+            junit 'target/**/*.xml'
+          }
+        }
+        stage('UAT Tests') {
+          steps {
+            echo 'UAT Testing Complete.'
+          }
+        }
+        stage('Integration Testing') {
+          steps {
+            sh '''sleep 10 
+'''
+            timeout(time: 90) {
+              echo 'done.'
+            }
+
+          }
+        }
       }
     }
     stage('Deploy') {
