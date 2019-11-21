@@ -21,7 +21,7 @@ pipeline {
         }
         stage('Integration Testing') {
           steps {
-            sh '''sleep 10 
+            sh '''sleep 30 
 '''
             timeout(time: 90) {
               echo 'done.'
